@@ -43,13 +43,4 @@ public class CarFacade {
         brakeService.brake();
     }
 
-    public void drift() {
-        startEngine();
-        accelerate();
-        turnLeft();
-        brake();
-        accelerate();
-        turnRight();
-    }
-
 }

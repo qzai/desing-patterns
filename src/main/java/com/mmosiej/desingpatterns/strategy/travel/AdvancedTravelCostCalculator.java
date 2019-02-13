@@ -11,16 +11,16 @@ import java.util.Map;
 
 public class AdvancedTravelCostCalculator {
 
-    private static final Map<TravelCostType, TravelCostStrategy> TRAVEL_COST_TYPE_MAP = new HashMap<TravelCostType, TravelCostStrategy>() {{
-        put(TravelCostType.BUS, new BusTravelCostStrategy());
-        put(TravelCostType.CAR, new CarTravelCostStrategy());
-        put(TravelCostType.PLANE, new PlaneTravelCostStrategy());
+    private static final Map<VehicleType, TravelCostStrategy> VEHICLE_TYPE_MAP = new HashMap<VehicleType, TravelCostStrategy>() {{
+        put(VehicleType.BUS, new BusTravelCostStrategy());
+        put(VehicleType.CAR, new CarTravelCostStrategy());
+        put(VehicleType.PLANE, new PlaneTravelCostStrategy());
     }};
 
-    public BigDecimal calculate(TravelCostType travelCostType, String city) {
-        TravelCostStrategy strategy = TRAVEL_COST_TYPE_MAP.get(travelCostType);
+    public BigDecimal calculate(VehicleType vehicleType, String city) {
+        TravelCostStrategy strategy = VEHICLE_TYPE_MAP.get(vehicleType);
         if (strategy == null) {
-            throw new IllegalArgumentException(String.format("There's no implementation yet for %s travel cost type.", travelCostType));
+            throw new IllegalArgumentException(String.format("There's no implementation yet for %s travel cost type.", vehicleType));
         }
 
         return strategy.calculate(city);

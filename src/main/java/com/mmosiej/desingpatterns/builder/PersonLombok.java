@@ -11,7 +11,10 @@ public class PersonLombok {
 
     private String firstName;
     private String lastName;
-    private int age;
+    private Integer age;
     private String nationality;
     private String phone;
+    private Integer weight;
+    private Integer height;
+    private Integer shoeSize;
 }

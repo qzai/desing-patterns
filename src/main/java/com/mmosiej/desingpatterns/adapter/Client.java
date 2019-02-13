@@ -15,7 +15,7 @@ public class Client {
         ecardPayment.pay(new BigDecimal(200));
 
         // external payment
-        Payment payUPayment = new PaymentAdapter(new PayUPayment());
+        Payment payUPayment = new PayUPaymentAdapter(new PayUPayment());
         payUPayment.pay(new BigDecimal(100));
     }
 }

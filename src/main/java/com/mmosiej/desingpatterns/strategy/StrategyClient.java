@@ -1,7 +1,7 @@
 package com.mmosiej.desingpatterns.strategy;
 
 import com.mmosiej.desingpatterns.strategy.travel.AdvancedTravelCostCalculator;
-import com.mmosiej.desingpatterns.strategy.travel.TravelCostType;
+import com.mmosiej.desingpatterns.strategy.travel.VehicleType;
 import com.mmosiej.desingpatterns.strategy.travel.strategy.BusTravelCostStrategy;
 import com.mmosiej.desingpatterns.strategy.travel.TravelCostCalculator;
 
@@ -15,7 +15,7 @@ public class StrategyClient {
         System.out.println("Bus travel cost to Warsaw: " + warsawBusTravelCost);
 
         AdvancedTravelCostCalculator travelCostCalculator = new AdvancedTravelCostCalculator();
-        BigDecimal warsawCarTravelCost = travelCostCalculator.calculate(TravelCostType.CAR, "Warsaw");
+        BigDecimal warsawCarTravelCost = travelCostCalculator.calculate(VehicleType.CAR, "Warsaw");
         System.out.println("Car travel cost to Warsaw: " + warsawCarTravelCost);
     }
 }

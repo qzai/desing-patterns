@@ -1,8 +1,7 @@
 package com.mmosiej.desingpatterns.adapter.external;
 
-public class PayUPayment implements ExternalPayment {
+public class PayUPayment  {
 
-    @Override
     public void makePayment(Double amount, String additionalInfo) {
 
     }

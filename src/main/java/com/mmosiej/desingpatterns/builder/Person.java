@@ -7,17 +7,27 @@ public class Person {
     private String firstName;
     // required
     private String lastName;
-    private int age;
+    private Integer age;
     private String nationality;
     private String phone;
+    private Integer weight;
+    private Integer height;
+    private Integer shoeSize;
 
-    // może być również private
-    public Person(String firstName, String lastName, int age, String nationality, String phone) {
+    public Person(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public Person(String firstName, String lastName, Integer age, String nationality, String phone, Integer weight, Integer height, Integer shoeSize) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.nationality = nationality;
         this.phone = phone;
+        this.weight = weight;
+        this.height = height;
+        this.shoeSize = shoeSize;
     }
 
     public String getFirstName() {
@@ -28,7 +38,7 @@ public class Person {
         return lastName;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
@@ -40,13 +50,31 @@ public class Person {
         return phone;
     }
 
+    public Integer getWeight() {
+        return weight;
+    }
+
+    public Integer getHeight() {
+        return height;
+    }
+
+    public Integer getShoeSize() {
+        return shoeSize;
+    }
+
     public static class PersonBuilder {
 
         private String firstName;
         private String lastName;
-        private int age;
+        private Integer age;
         private String nationality;
         private String phone;
+        private Integer weight;
+        private Integer height;
+        private Integer shoeSize;
+
+        public PersonBuilder() {
+        }
 
         // różne podejścia - z konstruktorem paramerowym lub bezparametrowym
         public PersonBuilder(String firstName, String lastName) {
@@ -79,8 +107,22 @@ public class Person {
             return this;
         }
 
+        public PersonBuilder weight(Integer weight) {
+            this.weight = weight;
+            return this;
+        }
+
+        public PersonBuilder height(Integer height) {
+            this.height = height;
+            return this;
+        }
+
+        public PersonBuilder phone(Integer shoeSize) {
+            this.shoeSize = shoeSize;
+            return this;
+        }
+
         public Person build() {
-            // Alternatywa dla konsturktora parametrowego w klasie budowniczego
             if (firstName == null) {
                 throw new IllegalStateException("First name must be specified.");
             }
@@ -88,7 +130,7 @@ public class Person {
                 throw new IllegalStateException("Last name must be specified.");
             }
 
-            return new Person(firstName, lastName, age, nationality, phone);
+            return new Person(firstName, lastName, age, nationality, phone, weight, height, shoeSize);
         }
     }
 }
